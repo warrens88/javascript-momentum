@@ -4,21 +4,21 @@ const form = document.querySelector(".js-form"),
 
 //local storage 정보를 컴퓨터에 저장하는 방법
 const USER_LS = "currentUser",
-  SHOWING_ON = "showing";
+  SHOWING_CN = "showing";
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const currenValue = input.value;
+
+function handleSubmit(event){
+    event.preventDefault();
 }
 
-function askForName() {
-  form.classList.add(SHOWING_ON);
-  form.addEventListener("submit");
+function askForName(){
+    form.classList.add(SHOWING_CN);
+    form.addEventListener("submit", handleSubmit);
 }
 
 function paintGreeting(text) {
-  form.classList.remove(SHOWING_ON);
-  greeting.classList.add(SHOWING_ON);
+  form.classList.remove(SHOWING_CN);
+  greeting.classList.add(SHOWING_CN);
   greeting.innerText = `Hello ${text}`;
 }
 
@@ -26,11 +26,15 @@ function loadName() {
   const currentUser = localStorage.getItem(USER_LS);
   if (currentUser === null) {
     // she is not
+    askForName();
   } else {
     // she is
     paintGreeting(currentUser);
   }
 }
-function init() {}
+
+function init() {
+    loadName();
+}
 
 init();
