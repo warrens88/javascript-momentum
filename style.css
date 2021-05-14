@@ -3,9 +3,9 @@ body {
   }
   
   .form,
-  .greetings {
+  .greetings {  
     display: none;
-  }
+  } 
   
   .showing {
     display: block;
